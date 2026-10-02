@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#071426">
+
+<title>Who's DewZ — Official Site</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Outfit", "Inter", sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(0, 140, 255, .28), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(120, 70, 255, .25), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(0, 220, 255, .20), transparent 35%),
+        #020711;
+
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .55;
+    animation: floatOrb 12s ease-in-out infinite alternate;
+}
+
+.orb.one {
+    width: 300px;
+    height: 300px;
+    background: #008cff;
+    left: -100px;
+    top: 10%;
+}
+
+.orb.two {
+    width: 280px;
+    height: 280px;
+    background: #7a35ff;
+    right: -80px;
+    top: 35%;
+    animation-delay: 2s;
+}
+
+.orb.three {
+    width: 240px;
+    height: 240px;
+    background: #00e5ff;
+    left: 40%;
+    bottom: -100px;
+    animation-delay: 4s;
+}
+
+@keyframes floatOrb {
+
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(30px, -50px, 0) scale(1.15);
+    }
+}
+
+/* =========================================================
+   GLASS
+========================================================= */
+
+.glass {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.16),
+            rgba(255,255,255,.04)
+        );
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.18),
+        0 25px 80px rgba(0,0,0,.30),
+        0 0 35px rgba(0,150,255,.08);
+
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    width: min(1150px, calc(100% - 30px));
+    margin: 18px auto 0;
+
+    padding: 14px 18px;
+
+    border-radius: 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: .5px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #6ed8ff,
+        #9c7cff,
+        #fff
+    );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: logoShine 5s linear infinite;
+}
+
+@keyframes logoShine {
+    to {
+        background-position: 300% center;
+    }
+}
+
+.nav-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 12px;
+    color: rgba(255,255,255,.72);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ffb3;
+
+    box-shadow:
+        0 0 10px #00ffb3,
+        0 0 20px #00ffb3;
+
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.5);
+        opacity: .5;
+    }
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 90vh;
+
+    width: min(1150px, calc(100% - 30px));
+
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.small-title {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    border-radius: 100px;
+
+    color: #8ddfff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 9vw, 100px);
+
+    line-height: .95;
+
+    font-weight: 800;
+
+    letter-spacing: -4px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff 15%,
+            #8ddfff 40%,
+            #6b7cff 60%,
+            #ffffff 85%
+        );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: titleGradient 6s linear infinite;
+}
+
+@keyframes titleGradient {
+    to {
+        background-position: 250% center;
+    }
+}
+
+.hero p {
+    margin: 25px auto;
+
+    max-width: 650px;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 35px;
+}
+
+.main-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    border-radius: 18px;
+
+    padding: 15px 25px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,153,255,.35),
+            rgba(120,70,255,.25)
+        );
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.main-btn:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(0,140,255,.25),
+        0 0 30px rgba(100,80,255,.15);
+}
+
+.main-btn:active {
+    transform: scale(.95);
+}
+
+/* =========================================================
+   WATER EFFECT
+========================================================= */
+
+.water-ripple {
+    position: fixed;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70,210,255,.85),
+            rgba(0,130,255,.25),
+            transparent 70%
+        );
+
+    transform: translate(-50%, -50%) scale(0);
+
+    animation: waterWave 1.2s ease-out forwards;
+}
+
+.water-ripple::before,
+.water-ripple::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -20px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(70,210,255,.55);
+}
+
+.water-ripple::after {
+    inset: -45px;
+    border-color: rgba(0,140,255,.25);
+}
+
+@keyframes waterWave {
+
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(12);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+    width: min(1050px, calc(100% - 30px));
+
+    margin: 70px auto;
+
+    scroll-margin-top: 30px;
+}
+
+.section-card {
+    padding: 35px;
+
+    border-radius: 32px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.section-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(0,160,255,.13);
+
+    filter: blur(60px);
+
+    top: -100px;
+    right: -80px;
+}
+
+.section-title {
+    font-size: clamp(30px, 5vw, 48px);
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: rgba(255,255,255,.6);
+
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+   FONT SECTION
+========================================================= */
+
+.font-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.09);
+}
+
+.font-preview {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.drive-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #6b42ff
+        );
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px rgba(30,110,255,.25);
+
+    transition: .3s;
+}
+
+.drive-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   HASHTAGS
+========================================================= */
+
+.hashtags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.tag {
+    padding: 13px 17px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,140,255,.15),
+            rgba(130,70,255,.12)
+        );
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    color: #b9eaff;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.tag:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    background:
+        rgba(0,150,255,.25);
+
+    box-shadow:
+        0 10px 30px rgba(0,140,255,.15);
+}
+
+/* =========================================================
+   MORE DETAILS
+========================================================= */
+
+.more-details {
+    text-align: center;
+
+    margin-top: 100px;
+    margin-bottom: 35px;
+}
+
+.more-details h3 {
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+.more-details p {
+    color: rgba(255,255,255,.55);
+
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px 25px;
+
+    border-radius: 100px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #18c96e,
+            #05a957
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0,200,100,.22);
+
+    transition: .3s;
+}
+
+.whatsapp:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 18px 45px rgba(0,220,110,.3);
+}
+
+.whatsapp-icon {
+    width: 22px;
+    height: 22px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+
+    padding: 35px 20px;
+
+    color: rgba(255,255,255,.4);
+
+    font-size: 13px;
+}
+
+/* =========================================================
+   10 SECOND HERO ANIMATION
+========================================================= */
+
+.hero-flash {
+    animation: heroFlash 1.5s ease;
+}
+
+@keyframes heroFlash {
+
+    0% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+
+    30% {
+        filter: brightness(1.6);
+        transform: scale(1.015);
+    }
+
+    100% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        margin-top: 10px;
+
+        padding: 12px 15px;
+
+        border-radius: 19px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .nav-status {
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero h1 {
+        font-size: clamp(45px, 16vw, 75px);
+
+        letter-spacing: -3px;
+    }
+
+    .hero p {
+        font-size: 15px;
+
+        padding: 0 10px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .main-btn {
+        width: 100%;
+    }
+
+    .section {
+        margin: 45px auto;
+    }
+
+    .section-card {
+        padding: 23px;
+
+        border-radius: 25px;
+    }
+
+    .font-box {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .drive-btn {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .tag {
+        font-size: 14px;
+
+        padding: 11px 14px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="orb one"></div>
+
+    <div class="orb two"></div>
+
+    <div class="orb three"></div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar glass">
+
+    <div class="logo">
+        Who's DewZ
+    </div>
+
+    <div class="nav-status">
+
+        <span class="status-dot"></span>
+
+        Official Site
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-content" id="heroContent">
+
+        <div class="small-title glass">
+            OFFICIAL WEBSITE
+        </div>
+
+        <h1>
+            Who's DewZ
+        </h1>
+
+        <p>
+            Welcome to the official Who's DewZ website.
+            Explore stylish fonts and discover popular
+            hashtags to level up your content.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <!-- FONT BUTTON -->
+
+            <button
+                class="main-btn"
+                onclick="waterNavigate('fonts')">
+
+                ✦ Fonts
+
+            </button>
+
+
+            <!-- HASHTAGS BUTTON -->
+
+            <button
+                class="main-btn"
+                onclick="waterNavigate('viral')">
+
+                ⚡ Viral Hashtags
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FONT SECTION
+===================================================== -->
+
+<section
+    class="section"
+    id="fonts">
+
+    <div class="section-card glass">
+
+        <div class="section-title">
+            Font Collection
+        </div>
+
+        <div class="section-subtitle">
+            Explore the font collection and find
+            your favourite style.
+        </div>
+
+
+        <div class="font-box">
+
+            <div>
+
+                <div class="font-preview">
+                    Aa • Who's DewZ
+                </div>
+
+                <p style="
+                    color:rgba(255,255,255,.5);
+                    margin-top:8px;
+                ">
+                    Stylish fonts collection
+                </p>
+
+            </div>
+
+
+            <!-- GOOGLE DRIVE -->
+
+            <a
+                class="drive-btn"
+                href="https://drive.google.com/drive/folders/1enDyQfeiAEu6l9kdFW_ZeSzSLj-jJ3Jf"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                📁 Open Fonts
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     VIRAL HASHTAGS
+===================================================== -->
+
+<section
+    class="section"
+    id="viral">
+
+    <div class="section-card glass">
+
+        <div class="section-title">
+            Viral Hashtags
+        </div>
+
+        <div class="section-subtitle">
+            Most popular hashtags for your content.
+        </div>
+
+
+        <div class="hashtags">
+
+            <span class="tag">
+                #foryou
+            </span>
+
+            <span class="tag">
+                #foryoupage
+            </span>
+
+            <span class="tag">
+                #popular
+            </span>
+
+            <span class="tag">
+                #trending
+            </span>
+
+            <span class="tag">
+                #viral
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MORE DETAILS
+===================================================== -->
+
+<section class="more-details">
+
+    <h3>
+        More Details
+    </h3>
+
+    <p>
+        Want more information? Contact us directly
+        through WhatsApp.
+    </p>
+
+
+    <a
+        class="whatsapp"
+        href="https://wa.me/94764710434"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <!-- WhatsApp SVG -->
+
+        <svg
+            class="whatsapp-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor">
+
+            <path d="
+                M20.52 3.48A11.85 11.85 0 0 0
+                12.05 0C5.5 0 .17 5.33.17 11.89
+                c0 2.09.55 4.13 1.59 5.92L.1 24
+                l6.33-1.64a11.87 11.87 0 0 0
+                5.62 1.43h.01c6.55 0 11.88-5.33
+                11.88-11.89 0-3.18-1.24-6.17-3.42-8.42z
+
+                M12.06 21.7h-.01a9.8 9.8 0 0 1
+                -5-1.36l-.36-.21-3.76.98 1-3.66
+                -.23-.38a9.82 9.82 0 1 1
+                18.16-5.18c0 5.41-4.4 9.81-9.8
+                9.81z
+
+                M17.77 14.62c-.31-.16-1.84-.91-2.12-1.02
+                -.28-.1-.49-.16-.7.16-.21.31-.8
+                1.02-.98 1.23-.18.21-.36.23-.67.08
+                -.31-.16-1.3-.48-2.47-1.53-.91-.81-1.53-1.81
+                -1.71-2.12-.18-.31-.02-.48.13-.64
+                .14-.14.31-.36.46-.54.15-.18.21-.31.31-.52
+                .1-.21.05-.39-.03-.54-.08-.16-.7-1.69-.96-2.31
+                -.25-.6-.5-.52-.7-.53h-.6c-.21 0-.54.08-.82.39
+                -.28.31-1.07 1.05-1.07 2.56
+                0 1.51 1.1 2.96 1.25 3.16
+                .15.21 2.17 3.31 5.26 4.64
+                .74.32 1.32.51 1.77.65
+                .74.24 1.42.21 1.95.13
+                .59-.09 1.84-.75 2.1-1.47
+                .26-.72.26-1.33.18-1.47
+                -.08-.13-.28-.21-.59-.36z
+            "/>
+
+        </svg>
+
+        Message on WhatsApp
+
+    </a>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 Who's DewZ • Official Website
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   WATER NAVIGATION
+========================================================= */
+
+function waterNavigate(sectionId) {
+
+    // Create main water ripple
+    const ripple = document.createElement("div");
+
+    ripple.className = "water-ripple";
+
+    ripple.style.left = "50%";
+    ripple.style.top = "50%";
+
+    document.body.appendChild(ripple);
+
+
+    // Add smaller waves
+    for (let i = 0; i < 4; i++) {
+
+        setTimeout(() => {
+
+            const wave = document.createElement("div");
+
+            wave.className = "water-ripple";
+
+            wave.style.left =
+                Math.random() * 100 + "%";
+
+            wave.style.top =
+                Math.random() * 100 + "%";
+
+            wave.style.animationDuration =
+                (0.9 + Math.random() * .5) + "s";
+
+            document.body.appendChild(wave);
+
+            setTimeout(() => {
+                wave.remove();
+            }, 1500);
+
+        }, i * 100);
+
+    }
+
+
+    setTimeout(() => {
+
+        document.getElementById(sectionId)
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+    }, 250);
+
+
+    setTimeout(() => {
+        ripple.remove();
+    }, 1500);
+}
+
+
+/* =========================================================
+   10 SECOND ANIMATION
+========================================================= */
+
+const heroContent =
+    document.getElementById("heroContent");
+
+
+function heroAnimation() {
+
+    heroContent.classList.remove("hero-flash");
+
+    // Restart animation
+    void heroContent.offsetWidth;
+
+    heroContent.classList.add("hero-flash");
+
+
+    // Water drops around screen
+    for (let i = 0; i < 5; i++) {
+
+        setTimeout(() => {
+
+            const drop =
+                document.createElement("div");
+
+            drop.className = "water-ripple";
+
+            drop.style.left =
+                (20 + Math.random() * 60) + "%";
+
+            drop.style.top =
+                (20 + Math.random() * 60) + "%";
+
+            document.body.appendChild(drop);
+
+            setTimeout(() => {
+                drop.remove();
+            }, 1500);
+
+        }, i * 120);
+
+    }
+}
+
+
+/* Every 10 seconds */
+
+setInterval(heroAnimation, 10000);
+
+
+/* =========================================================
+   BUTTON RIPPLE
+========================================================= */
+
+document
+    .querySelectorAll(".main-btn")
+    .forEach(button => {
+
+        button.addEventListener("click", function(e) {
+
+            const rect =
+                this.getBoundingClientRect();
+
+            const ripple =
+                document.createElement("span");
+
+            ripple.className = "water-ripple";
+
+            ripple.style.left =
+                (rect.left + rect.width / 2) + "px";
+
+            ripple.style.top =
+                (rect.top + rect.height / 2) + "px";
+
+            document.body.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 1500);
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
